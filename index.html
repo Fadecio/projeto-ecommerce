@@ -9,32 +9,43 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/cabecalho.css">
 </head>
 
 <body>
-    <header>
-        <a href="/">
-            <img src="./assets/images/logo.svg" alt="Dev em dobro">
-        </a>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#perguntas">Perguntas Frequentes</a></li>
-                <li><a href="#contato">Fale Conosco</a></li>
-            </ul>
-        </nav>
-        <div>
+    <header class="cabecalho">
 
+        <div class="header-conteudo">
+            <div class="header-esquerda">
+
+                <button class="menu-hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <a class="logo" href="/">
+                    <img src="./assets/images/logo.svg" alt="Dev em dobro">
+                </a>
+            </div>
+            <nav class="menu-principal">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#perguntas">Perguntas Frequentes</a></li>
+                    <li><a href="#contato">Fale Conosco</a></li>
+                </ul>
+            </nav>
+            <button class="botao-carrinho">
+                <img src="./assets/images/icone_carrinho.svg" alt="carrinho de compras">
+                <span id="contador-carrinho">0</span>
+            </button>
         </div>
-        <button>
-            <img src="./assets/images/icone_carrinho.svg" alt="Carrinho de Compras">
-        </button>
     </header>
     <main>
         <section>
