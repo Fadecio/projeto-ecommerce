@@ -18,8 +18,12 @@ main .produtos ul {
 }
 
 main .produtos .produto {
-  /* background-color: var(--cor-neutra-clara); */
   max-width: 368px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--cor-cinza-escuro);
 }
 
 main .produtos img {
@@ -46,7 +50,7 @@ main .informacoes {
   color: var(--cor-neutra-clara);
   display: grid;
   gap: 0.5rem;
-  padding: 1.5rem 1.5rem;
+  padding: 0 1.5rem 1.5rem;
   border-bottom-left-radius: 14px;
   border-bottom-right-radius: 14px;
 }
@@ -75,6 +79,8 @@ main .informacoes .adicionar-carrinho {
   cursor: pointer;
   margin-top: 0.5rem;
   transition: background-color 0.3s ease-in-out;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
 }
 
 main .informacoes .adicionar-carrinho:hover {
