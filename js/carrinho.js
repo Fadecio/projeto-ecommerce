@@ -96,8 +96,29 @@ function renderizarTabelaDoCarrinho() {
                     <td><button class="btn-remover" data-id="${produto.id}" id="deletar"></button></td>  
                    `;
 
-     corpoTabela.appendChild(tr);
+    corpoTabela.appendChild(tr);
   });
 }
 
 renderizarTabelaDoCarrinho();
+
+// Objetivo 2 - remover produtos do carrinho:
+//  passo 1- pegar o botão de deletar do html;
+
+const corpoTabela = document.querySelector("#modal-1-content table tbody");
+corpoTabela.addEventListener("click", (evento) => {
+  if (evento.target.classList.contains("btn-remover")) {
+    const id = evento.target.dataset.id;
+
+    removerProdutosDoCarrinho(id);
+  }
+});
+
+function removerProdutosDoCarrinho(id) {
+  const produtos = obterProdutosDoCarrinho();
+  const carrinhoAtualizado = produtos.filter((produto) => produto.id !== id);
+
+  salvarProdutosNoCarrinho(carrinhoAtualizado);
+  atualizarContadorCarrinho();
+  renderizarTabelaDoCarrinho();
+}
