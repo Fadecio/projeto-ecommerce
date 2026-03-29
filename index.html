@@ -44,7 +44,7 @@
                     <li><a href="#contato">Fale Conosco</a></li>
                 </ul>
             </nav>
-            <button class="botao-carrinho">
+            <button class="botao-carrinho" data-micromodal-trigger="modal-1">
                 <img src="./assets/images/icone_carrinho.svg" alt="carrinho de compras">
                 <span id="contador-carrinho">0</span>
             </button>
@@ -128,21 +128,23 @@
         </div>
     </footer>
 
-
-     <div id="modal-1"  aria-hidden="true">
+     <div id="modal-1" class="modal" aria-hidden="true">
 
         
-        <div tabindex="-1" data-micromodal-close>
+        <div tabindex="-1">
 
            
             <div  class="container-modal" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
 
 
                 <header>
-                    <h2 id="modal-1-title">Carrinho de compras</h2>
+                    <h2 id="modal-1-title">Carrinho de compras</h2> 
 
-                    
-                    <button class="fechar" aria-label="Close modal" data-micromodal-close></button>
+                    <button 
+                        class="fechar" 
+                        aria-label="Close modal" 
+                        data-micromodal-close>
+                    </button>
                 </header>
 
                 <div id="modal-1-content">
@@ -187,6 +189,7 @@
     </div> 
 
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script src="./js/modal.js"></script>
     <script src="./js/carrinho.js"></script>
 </body>
 
