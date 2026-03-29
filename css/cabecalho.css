@@ -65,6 +65,20 @@
   height: 3px;
   width: 100%;
   background-color: var(--cor-neutra-clara);
+  transition: all 0.3s ease; /* Adicionado para animação suave */
+}
+
+/* Animação para transformar em X quando o menu está ativo */
+.cabecalho.menu-ativo .menu-hamburguer span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.cabecalho.menu-ativo .menu-hamburguer span:nth-child(2) {
+  opacity: 0;
+}
+
+.cabecalho.menu-ativo .menu-hamburguer span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .botao-carrinho {
