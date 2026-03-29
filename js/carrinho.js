@@ -11,37 +11,27 @@ const SELECTORES = {
   BOTAO_REMOVER: ".btn-remover",
 };
 
-const botaoAdicionarCarrinho = document.querySelectorAll(
-  SELECTORES.BOTAO_ADICIONAR,
-);
+const botaoAdicionarCarrinho = document.querySelectorAll(SELECTORES.BOTAO_ADICIONAR);
 if (!botaoAdicionarCarrinho.length) {
   console.error("Botões de adicionar ao carrinho não encontrados.");
 }
 
-botaoAdicionarCarrinho.forEach((botao) => {
-  botao.addEventListener("click", (evento) => {
+botaoAdicionarCarrinho.forEach(botao => {
+  botao.addEventListener("click", evento => {
     const elementoProduto = evento.target.closest(SELECTORES.PRODUTO);
     if (!elementoProduto) return;
 
     const produtoId = elementoProduto.dataset.id;
-    const produtoNome = elementoProduto.querySelector(
-      SELECTORES.NOME_PRODUTO,
-    )?.textContent;
-    const produtoImagem = elementoProduto
-      .querySelector(SELECTORES.IMAGEM_PRODUTO)
-      ?.getAttribute("src");
-    const precoTexto = elementoProduto.querySelector(
-      SELECTORES.PRECO_PRODUTO,
-    )?.textContent;
+    const produtoNome = elementoProduto.querySelector(SELECTORES.NOME_PRODUTO)?.textContent;
+    const produtoImagem = elementoProduto.querySelector(SELECTORES.IMAGEM_PRODUTO)?.getAttribute("src");
+    const precoTexto = elementoProduto.querySelector(SELECTORES.PRECO_PRODUTO)?.textContent;
 
     if (!produtoId || !produtoNome || !produtoImagem || !precoTexto) {
       console.error("Informações do produto incompletas.");
       return;
     }
 
-    const produtoPreco = parseFloat(
-      precoTexto.replace("R$", "").replaceAll(".", "").replace(",", "."),
-    );
+    const produtoPreco = parseFloat(precoTexto.replace("R$", "").replaceAll(".", "").replace(",", "."));
 
     if (isNaN(produtoPreco)) {
       console.error("Preço do produto inválido.");
@@ -50,9 +40,7 @@ botaoAdicionarCarrinho.forEach((botao) => {
 
     const carrinho = obterProdutosDoCarrinho();
 
-    const produtoExistente = carrinho.find(
-      (produto) => produto.id === produtoId,
-    );
+    const produtoExistente = carrinho.find(produto => produto.id === produtoId);
     if (produtoExistente) {
       produtoExistente.quantidade += 1;
     } else {
@@ -87,9 +75,7 @@ function atualizarContadorCarrinho() {
     0,
   );
 
-  const contadorElemento = document.getElementById(
-    SELECTORES.CONTADOR_CARRINHO.slice(1),
-  );
+  const contadorElemento = document.getElementById(SELECTORES.CONTADOR_CARRINHO.slice(1));
   if (contadorElemento) {
     contadorElemento.textContent = total;
   } else {
@@ -107,12 +93,9 @@ function renderizarTabelaDoCarrinho() {
 
   corpoTabela.innerHTML = "";
 
-  const linhasHTML = produtos
-    .map((produto) => {
+  const linhasHTML = produtos.map(produto => {
       const precoUnitario = produto.preco.toFixed(2).replace(".", ",");
-      const precoTotal = (produto.preco * produto.quantidade)
-        .toFixed(2)
-        .replace(".", ",");
+      const precoTotal = (produto.preco * produto.quantidade).toFixed(2).replace(".", ",");
       return `<tr>
               <td class="td-produto"><img src="${produto.imagem}" alt="${produto.nome}"></td>
               <td>${produto.nome}</td>
